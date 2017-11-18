@@ -51,6 +51,7 @@ var sphere1, material, probe;
         camera.maxZ = 20000;
         // camera.upperBetaLimit = Math.PI / 2;
         camera.inertia = 0;
+        camera.moveSensibility = 10;
 
         scene.activeCamera.panningSensibility = 0;
         camera.setPosition(new BABYLON.Vector3(0, 0, 7.8));
