@@ -51,6 +51,8 @@ var sphere1, material, probe;
         camera.maxZ = 20000;
         // camera.upperBetaLimit = Math.PI / 2;
         camera.inertia = 0;
+        // camera.moveSensibility = 50;
+        // camera.angularSensibility = 50;
 
         scene.activeCamera.panningSensibility = 0;
         camera.setPosition(new BABYLON.Vector3(0, 0, 7.8));
@@ -76,7 +78,7 @@ var sphere1, material, probe;
         var generateSatelliteMaterial = function (root, others) {
             material = new BABYLON.StandardMaterial("satelliteMat" + root.name, scene);
 
-            probe = new BABYLON.ReflectionProbe("satelliteProbe" + root.name, 128, scene, true);
+            probe = new BABYLON.ReflectionProbe("satelliteProbe" + root.name, 512, scene, true);
             for (var index = 0; index < others.length; index++) {
                 probe.renderList.push(others[index]);
             };
