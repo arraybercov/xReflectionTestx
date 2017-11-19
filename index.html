@@ -49,8 +49,8 @@ var sphere1, material, probe;
         camera.minZ = 0.1;
         camera.maxZ = 20000;
         camera.inertia = 0;
-        camera.angularSensibilityX = 15;
-        camera.angularSensibilityY = 15;
+        camera.angularSensibilityX = 100;
+        camera.angularSensibilityY = 100;
         camera.setPosition(new BABYLON.Vector3(0, 0, 7.8));
 
 
@@ -106,13 +106,12 @@ var sphere1, material, probe;
             box1.rotation.x += 0.006;
             skySphere.rotation.y -= 0.0027;
         });
-  
+
         return scene;
         };
 
         scene = createScene( );
         engine.runRenderLoop( function( ) {
-
           scene.render( );
         } );
 
