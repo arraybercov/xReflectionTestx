@@ -79,7 +79,7 @@ var sphere1, material, probe;
         var generateSatelliteMaterial = function (root, others) {
             material = new BABYLON.StandardMaterial("satelliteMat" + root.name, scene);
 
-            probe = new BABYLON.ReflectionProbe("satelliteProbe" + root.name, 256, scene, true);
+            probe = new BABYLON.ReflectionProbe("satelliteProbe" + root.name, 128, scene, true);
             for (var index = 0; index < others.length; index++) {
                 probe.renderList.push(others[index]);
             };
