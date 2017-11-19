@@ -45,22 +45,20 @@ var sphere1, material, probe;
         engine.setHardwareScalingLevel(0.5);
         scene = new BABYLON.Scene(engine);
         camera = new BABYLON.ArcRotateCamera("camera", 0, 0, 0, new BABYLON.Vector3(0, 0, 0), scene);
-        // camera.attachPostProcess(new BABYLON.FxaaPostProcess("fxaa", 1.0, camera, BABYLON.Texture.BILINEAR_SAMPLINGMODE, engine, false));
         camera.attachControl(canvas, true);
         camera.minZ = 0.1;
         camera.maxZ = 20000;
         // camera.upperBetaLimit = Math.PI / 2;
         camera.inertia = 0;
+        camera.angularSensibilityX = 50;
+        camera.angularSensibilityY = 50;
 
-        // camera.moveSensibility = 50;
-        // camera.angularSensibility = 50;
-
-        camera.moveSensibility = 20;
+  
 
         scene.activeCamera.panningSensibility = 0;
         camera.setPosition(new BABYLON.Vector3(0, 0, 7.8));
 
-        var fxaa = new BABYLON.FxaaPostProcess("fxaa", 2, camera);
+//         var fxaa = new BABYLON.FxaaPostProcess("fxaa", 2, camera);
 
         var light = new BABYLON.HemisphericLight("light1", new BABYLON.Vector3(0, 0, 0), scene);
         light.intensity = 2;
@@ -81,7 +79,7 @@ var sphere1, material, probe;
         var generateSatelliteMaterial = function (root, others) {
             material = new BABYLON.StandardMaterial("satelliteMat" + root.name, scene);
 
-            probe = new BABYLON.ReflectionProbe("satelliteProbe" + root.name, 512, scene, true);
+            probe = new BABYLON.ReflectionProbe("satelliteProbe" + root.name, 256, scene, true);
             for (var index = 0; index < others.length; index++) {
                 probe.renderList.push(others[index]);
             };
