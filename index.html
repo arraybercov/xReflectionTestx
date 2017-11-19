@@ -48,17 +48,11 @@ var sphere1, material, probe;
         camera.attachControl(canvas, true);
         camera.minZ = 0.1;
         camera.maxZ = 20000;
-        // camera.upperBetaLimit = Math.PI / 2;
         camera.inertia = 0;
-        camera.angularSensibilityX = 50;
-        camera.angularSensibilityY = 50;
-
-  
-
-        scene.activeCamera.panningSensibility = 0;
+        camera.angularSensibilityX = 30;
+        camera.angularSensibilityY = 30;
         camera.setPosition(new BABYLON.Vector3(0, 0, 7.8));
 
-//         var fxaa = new BABYLON.FxaaPostProcess("fxaa", 2, camera);
 
         var light = new BABYLON.HemisphericLight("light1", new BABYLON.Vector3(0, 0, 0), scene);
         light.intensity = 2;
@@ -90,7 +84,6 @@ var sphere1, material, probe;
             // material.reflectionFresnelParameters.bias = 0.2;
             material.disableLighting = true;
             root.material = material;
-            // probe.position = new BABYLON.Vector3(0, 3, 0);
             probe.attachToMesh(root);
         };
 
@@ -114,7 +107,7 @@ var sphere1, material, probe;
             // sphere1.rotation.x += 0.01;
             skySphere.rotation.y -= 0.0027;
         });
-        var postProcess = new BABYLON.FxaaPostProcess("fxaa", 4.0, camera);
+  
         return scene;
         };
 
